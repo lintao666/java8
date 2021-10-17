@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.function.Function;
+import java.util.function.IntConsumer;
 
 /**
  * @date 2019/4/30 11:29
@@ -43,6 +45,21 @@ public class ArraysTest {
             System.out.println(right);
             return left+right;
         });
+    }
+
+    @Test
+    public void testArrayMethodReference(){
+        Function<Integer,String[]> fun= x ->new String[x];
+        String[] str=fun.apply(3);
+        System.out.println(str.length);
+        Function<Integer,String[]> fun2=String[]::new;
+        String[] str2=fun.apply(4);
+        System.out.println(str2.length);
+    }
+
+    @Test
+    public void testSuperMethodReference(){
+
     }
 
 }
