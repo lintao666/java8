@@ -38,20 +38,20 @@ jobs:
 #        env:
 #          GITHUB_TOKEN: ${{ github.token }}
       - run: echo "a $${{ secrets.REMOTE_IP }}"
-      - run: echo "a $${{ secrets.REMOTE_PASSPWORD }}"
+      - run: echo "a $${{ secrets.REMOTE_PASSWORD }}"
       - name: 删除旧的jar包以及运行脚本
         #with:
           #REMOTE_IP: ${{ secrets.REMOTE_IP }}
         env:
           REMOTE_IP: ${{ secrets.REMOTE_IP }}
-          REMOTE_PASSPWORD: ${{ secrets.REMOTE_PASSPWORD }}
-        run: sshpass -p $REMOTE_PASSPWORD ssh -o StrictHostKeyChecking=no root@$REMOTE_IP "cd /root/java-project && rm -rf ./*.jar"
+          REMOTE_PASSWORD: ${{ secrets.REMOTE_PASSWORD }}
+        run: sshpass -p $REMOTE_PASSWORD ssh -o StrictHostKeyChecking=no root@$REMOTE_IP "cd /root/java-project && rm -rf ./*.jar"
 
       - name: 上传jar包和启动脚本到服务器中
         env:
           REMOTE_IP: ${{ secrets.REMOTE_IP }}
-          REMOTE_PASSPWORD: ${{ secrets.REMOTE_PASSPWORD }}
-        run: sshpass -p "6789@jkl" scp -r -o StrictHostKeyChecking=no ./target/java8*.jar  root@$REMOTE_IP:/root/java-project
+          REMOTE_PASSWORD: ${{ secrets.REMOTE_PASSWORD }}
+        run: sshpass -p "$REMOTE_PASSWORD" scp -r -o StrictHostKeyChecking=no ./target/java8*.jar  root@$REMOTE_IP:/root/java-project
 
       - name: 启动项目
-        run: sshpass -p "6789@jkl" ssh -o StrictHostKeyChecking=no root@119.23.52.20 "cd /root/java-project && sh start.sh"
+        run: sshpass -p "$REMOTE_PASSWORD" ssh -o StrictHostKeyChecking=no root@$REMOTE_IP "cd /root/java-project && sh start.sh"
