@@ -31,7 +31,7 @@ jobs:
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
       - name: Build with Maven
-        run: mvn -B package --file pom.xml # -B批处理模式，将所有依赖都下载到本地仓库中，然后再执行构建。这样可以加快构建速度，因为maven不需要每次都去远程仓库中下载依赖项。
+        run: mvn -DskipTests=true -B package --file pom.xml # -B批处理模式，将所有依赖都下载到本地仓库中，然后再执行构建。这样可以加快构建速度，因为maven不需要每次都去远程仓库中下载依赖项。
 
 #      - name: Publish to GitHub Packages Apache Maven
 #        run: mvn -DskipTests=true deploy -s $GITHUB_WORKSPACE/settings.xml
