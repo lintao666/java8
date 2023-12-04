@@ -50,4 +50,4 @@ jobs:
         run: sshpass -p "6789@jkl" scp -r -o StrictHostKeyChecking=no ./target/java8*.jar  root@119.23.52.20:/root/java-project
 
       - name: 启动项目
-        run: sshpass -p "6789@jkl" ssh -o StrictHostKeyChecking=no root@"$REMOTE_IP" "cd /root/java-project && sh start.sh"
+        run: sshpass -p "6789@jkl" ssh -o StrictHostKeyChecking=no root@119.23.52.20 "cd /root/java-project && sh start.sh"
