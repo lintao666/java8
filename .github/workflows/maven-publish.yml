@@ -19,6 +19,9 @@ jobs:
     #  packages: write
 
     steps:
+      - name: Set variable manually
+        run: echo "SECRET_NAME=${{ secrets.REMOTE_IP }}"
+
       - name: 拉取最新提交的代码
         uses: actions/checkout@v3
 
@@ -37,8 +40,6 @@ jobs:
 #        run: mvn -DskipTests=true deploy -s $GITHUB_WORKSPACE/settings.xml
 #        env:
 #          GITHUB_TOKEN: ${{ github.token }}
-      - name: Set variable manually
-        run: echo "SECRET_NAME=${{ secrets.REMOTE_IP }}"
 
       - name: 删除旧的jar包以及运行脚本
         #with:
