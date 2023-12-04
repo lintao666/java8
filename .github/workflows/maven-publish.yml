@@ -38,7 +38,7 @@ jobs:
 #        env:
 #          GITHUB_TOKEN: ${{ github.token }}
       - name: 删除旧的jar包以及运行脚本
-        run: sshpass -p "${{ secrets.REMOTE_PASSPWORD }}" ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} "cd /root/java-project && rm -rf ./*.jar"
+        run: sshpass -p `${{ secrets.REMOTE_PASSPWORD }}` ssh -o StrictHostKeyChecking=no root@`${{ secrets.REMOTE_IP }}` "cd /root/java-project && rm -rf ./*.jar"
 
       - name: 上传jar包和启动脚本到服务器中
         run: sshpass -p `${{ secrets.REMOTE_PASSPWORD }}` scp -r -o StrictHostKeyChecking=no ./target/java8*.jar  root@${{secrets.REMOTE_IP}}:/root/java-project
