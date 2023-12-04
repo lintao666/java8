@@ -38,9 +38,10 @@ jobs:
 #        env:
 #          GITHUB_TOKEN: ${{ github.token }}
       - name: 删除旧的jar包以及运行脚本
-        with:
-          REMOTE_IP: ${{ secrets.REMOTE_IP }}
+        #with:
+          #REMOTE_IP: ${{ secrets.REMOTE_IP }}
         env:
+          REMOTE_IP: ${{ secrets.REMOTE_IP }}
           REMOTE_PASSPWORD: ${{ secrets.REMOTE_PASSPWORD }}
         run: |
           sshpass -p "$REMOTE_PASSPWORD" ssh -o StrictHostKeyChecking=no root@"$REMOTE_IP" "cd /root/java-project && rm -rf ./*.jar"
