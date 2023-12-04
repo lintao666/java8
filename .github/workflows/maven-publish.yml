@@ -38,10 +38,8 @@ jobs:
 #        env:
 #          GITHUB_TOKEN: ${{ github.token }}
       - name: Set variable manually
-        run: echo "SECRET_NAME=${{ secrets.REMOTE_IP }}" >> $GITHUB_ENV
-      - name: Check variable
-        run: |
-         echo "Variable value: $SECRET_NAME"
+        run: echo "SECRET_NAME=${{ secrets.REMOTE_IP }}"
+
       - name: 删除旧的jar包以及运行脚本
         #with:
           #REMOTE_IP: ${{ secrets.REMOTE_IP }}
