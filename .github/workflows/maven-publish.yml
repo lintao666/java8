@@ -19,9 +19,6 @@ jobs:
     #  packages: write
 
     steps:
-      - name: Set variable manually
-        run: echo "SECRET_NAME=${{ secrets.REMOTE_IP }}"
-
       - name: 拉取最新提交的代码
         uses: actions/checkout@v3
 
@@ -47,7 +44,7 @@ jobs:
         env:
           REMOTE_IP: ${{ secrets.REMOTE_IP }}
           REMOTE_PASSPWORD: ${{ secrets.REMOTE_PASSPWORD }}
-        run: sshpass -p "$REMOTE_PASSPWORD" ssh -o StrictHostKeyChecking=no root@$REMOTE_IP "cd /root/java-project && rm -rf ./*.jar"
+        run: sshpass -p ${{ secrets.REMOTE_PASSPWORD }} ssh -o StrictHostKeyChecking=no root@$REMOTE_IP "cd /root/java-project && rm -rf ./*.jar"
 
       - name: 上传jar包和启动脚本到服务器中
         env:
