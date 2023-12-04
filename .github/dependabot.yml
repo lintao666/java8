@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    secrets:
+      - name: REMOTE_IP
+
+#  - package-ecosystem: "docker"
+#    directory: "/"
+#    schedule:
+#      interval: "daily"
+#    secrets:
+#      - name: REMOTE_IP
+#
+#registries:
+#  dockerhub: #Define access for a private registry
+#    type: docker-registry
+#    url: registry.hub.docker.com
+#    username: 772707347@qq.com
+#    password: TaO521521..
