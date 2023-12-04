@@ -23,7 +23,7 @@ jobs:
       - name: Login to Aliyun Container Registry(ACR)
         uses: aliyun/acr-login@v1 # 使用阿里云镜像服务action
         with:
-          login-server: ${{ secrets.DOCKER_REGISTRY }} # 容器镜像服务地址
+          login-server: "${{ secrets.DOCKER_REGISTRY }}" # 容器镜像服务地址
           region-id: cn-hangzhou
           username: "${{ secrets.REGISTRY_USERNAME }}"  # 引用GitHub repo设置的镜像容器服务用户名
           password: "${{ secrets.REGISTRY_PASSWORD }}"  # 引用GitHub repo设置的镜像容器服务密码
