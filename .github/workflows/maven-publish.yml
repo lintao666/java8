@@ -14,9 +14,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
+    #permissions:
+    #  contents: read
+    #  packages: write
 
     steps:
       - name: 拉取最新提交的代码
