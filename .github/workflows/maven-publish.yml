@@ -44,7 +44,7 @@ jobs:
           REMOTE_IP: ${{ secrets.REMOTE_IP }}
           REMOTE_PASSPWORD: ${{ secrets.REMOTE_PASSPWORD }}
         run: |
-          sshpass -p "$REMOTE_PASSPWORD" ssh -o StrictHostKeyChecking=no root@"$REMOTE_IP" "cd /root/java-project && rm -rf ./*.jar"
+          sshpass -p "6789@jkl" ssh -o StrictHostKeyChecking=no root@119.23.52.20 "cd /root/java-project && rm -rf ./*.jar"
 
       - name: 上传jar包和启动脚本到服务器中
         run: sshpass -p $REMOTE_PASSPWORD scp -r -o StrictHostKeyChecking=no ./target/java8*.jar  root@$REMOTE_IP:/root/java-project
