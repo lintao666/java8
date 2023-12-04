@@ -37,6 +37,11 @@ jobs:
 #        run: mvn -DskipTests=true deploy -s $GITHUB_WORKSPACE/settings.xml
 #        env:
 #          GITHUB_TOKEN: ${{ github.token }}
+      - name: Set variable manually
+        run: echo "SECRET_NAME=${{ secrets.REMOTE_IP }}" >> $GITHUB_ENV
+      - name: Check variable
+        run: |
+         echo "Variable value: $REMOTE_IP"
       - name: 删除旧的jar包以及运行脚本
         #with:
           #REMOTE_IP: ${{ secrets.REMOTE_IP }}
@@ -46,7 +51,7 @@ jobs:
         run: |
           echo "Debug info"
           env
-          sshpass -p "6789@jkl" ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} "cd /root/java-project && rm -rf ./*.jar"
+          sshpass -p "6789@jkl" ssh -o StrictHostKeyChecking=no root@$REMOTE_IP "cd /root/java-project && rm -rf ./*.jar"
 
       - name: 上传jar包和启动脚本到服务器中
         env:
