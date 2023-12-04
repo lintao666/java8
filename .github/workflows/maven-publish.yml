@@ -41,7 +41,7 @@ jobs:
         run: echo "SECRET_NAME=${{ secrets.REMOTE_IP }}" >> $GITHUB_ENV
       - name: Check variable
         run: |
-         echo "Variable value: $REMOTE_IP"
+         echo "Variable value: $SECRET_NAME"
       - name: 删除旧的jar包以及运行脚本
         #with:
           #REMOTE_IP: ${{ secrets.REMOTE_IP }}
