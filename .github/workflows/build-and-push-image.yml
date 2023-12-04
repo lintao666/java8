@@ -32,6 +32,6 @@ jobs:
         env:
           IMAGE_TAG: ${{ github.sha}} # 用于标记容器版本号
         run:
-          docker build -t ${{ secrets.DOCKER_REGISTRY }}/lintao_public/app:$IMAGE_TAG .
-          docker push ${{ secrets.DOCKER_REGISTRY }}/lintao_public/app:$IMAGE_TAG
+          docker build -t "${{ secrets.DOCKER_REGISTRY }}"/lintao_public/app:$IMAGE_TAG .
+          docker push "${{ secrets.DOCKER_REGISTRY }}"/lintao_public/app:$IMAGE_TAG
           
