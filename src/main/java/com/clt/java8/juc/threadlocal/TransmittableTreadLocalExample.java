@@ -13,6 +13,9 @@ import java.util.concurrent.Executors;
  * 2. 还可以修饰线程池或者使用Java Agent修饰JDK线程池实现类的方式实现TTL功能
  * * 启动参数中需要加上 -javaagent:path/transmittable-thread-local-x.x.x.jar
  * * 例如：-javaagent:C:\Users\linta\.m2\repository\com\alibaba\transmittable-thread-local\2.14.3\transmittable-thread-local-2.14.3.jar
+ *
+ * 应用：
+ * @see com.ruoyi.common.core.context.SecurityContextHolder.java
  */
 public class TransmittableTreadLocalExample {
     public static void main(String[] args) {
