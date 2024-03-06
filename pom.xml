@@ -7,6 +7,11 @@
     <groupId>com.clt.test</groupId>
     <artifactId>java8</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <transmittable-thread-local.version>2.14.3</transmittable-thread-local.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -39,6 +44,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 线程传递值 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+            <version>${transmittable-thread-local.version}</version>
+        </dependency>
     </dependencies>
 
 
